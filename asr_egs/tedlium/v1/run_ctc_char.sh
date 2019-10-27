@@ -13,10 +13,10 @@ if [ $stage -le 1 ]; then
   echo =====================================================================
   # If you have downloaded the data (e.g., for Kaldi systems), then you can
   # simply link the db directory to here and skip this step
-  local/tedlium_download_data.sh || exit 1;
+  #local/tedlium_download_data.sh || exit 1;
 
   # Use the same data preparation script from Kaldi
-  local/tedlium_prepare_data.sh || exit 1
+  #local/tedlium_prepare_data.sh || exit 1
 
   # Construct the character-based lexicon
   local/tedlium_prepare_char_dict.sh || exit 1;

@@ -8,20 +8,20 @@ mkdir -p db
 pushd db
 
 # TED-LIUM database:
-if [[ $(hostname -f) == *.clsp.jhu.edu ]]; then
-  ln -s /export/corpora5/TEDLIUM_release1
-elif [[ $(hostname -f) == compute-*.local ]]; then
-  ln -s /data/MM1/corpora/TEDLIUM_release* .
-else
-  if [ ! -f TEDLIUM_release1.tar.gz ]; then
-    wget -q http://www.openslr.org/resources/7/TEDLIUM_release1.tar.gz || exit 1
-    tar xf TEDLIUM_release1.tar.gz
-  fi
-  if [ ! -f TEDLIUM_release2.tar.gz ]; then
-    wget -q http://www.openslr.org/resources/19/TEDLIUM_release2.tar.gz || exit 1;
-    tar xf TEDLIUM_release2.tar.gz
-  fi
-fi
+#if [[ $(hostname -f) == *.clsp.jhu.edu ]]; then
+#  ln -s /export/corpora5/TEDLIUM_release1
+#elif [[ $(hostname -f) == compute-*.local ]]; then
+#  ln -s /data/MM1/corpora/TEDLIUM_release* .
+#else
+#  if [ ! -f TEDLIUM_release1.tar.gz ]; then
+#    wget -q http://www.openslr.org/resources/7/TEDLIUM_release1.tar.gz || exit 1
+#    tar xf TEDLIUM_release1.tar.gz
+#  fi
+#  if [ ! -f TEDLIUM_release2.tar.gz ]; then
+#    wget -q http://www.openslr.org/resources/19/TEDLIUM_release2.tar.gz || exit 1;
+#    tar xf TEDLIUM_release2.tar.gz
+#  fi
+#fi
 
 # Language models (Cantab Research):
 if [ ! -d cantab-TEDLIUM ]; then

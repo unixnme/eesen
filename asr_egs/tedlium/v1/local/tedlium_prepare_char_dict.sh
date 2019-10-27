@@ -5,14 +5,17 @@
 
 # Creates a lexicon in which each word is represented by the sequence of its characters (spelling). 
 
-phndir=data/local/dict_phn
+srcdict=db/cantab-TEDLIUM/cantab-TEDLIUM.dct
 dir=data/local/dict_char
+
 mkdir -p $dir
 
 [ -f path.sh ] && . ./path.sh
 
 # Use the word list of the phoneme-based lexicon. Create the lexicon using characters.
-cat $phndir/lexicon_words.txt | awk '{print $1}' | \
+cat $srcdict | grep -v "<s>" | grep -v "</s>" | LANG= LC_ALL= sort | sed 's:([0-9])::g' > lexicon_words.txt 
+
+cat lexicon_words.txt | awk '{print $1}' | \
   perl -e 'while(<>){ chop; $str="$_"; foreach $p (split("", $_)) {$str="$str $p"}; print "$str\n";}' \
   > $dir/lexicon_words.txt
 

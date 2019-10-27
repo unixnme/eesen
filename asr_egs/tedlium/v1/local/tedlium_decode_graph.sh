@@ -5,7 +5,7 @@
 
 . ./path.sh || exit 1;
 
-arpa_lm=db/cantab-TEDLIUM/cantab-TEDLIUM-pruned.lm3.gz
+arpa_lm=db/cantab-TEDLIUM/cantab-TEDLIUM-pruned.lm3
 oov_list=/dev/null
 
 . parse_options.sh || exit 1;
@@ -19,7 +19,7 @@ outlangdir=${langdir}_test
 rm -rf $outlangdir
 cp -r $langdir $outlangdir
 
-gunzip -c "$arpa_lm" | \
+cat $arpa_lm | \
    grep -v '<s> <s>' | \
    grep -v '</s> <s>' | \
    grep -v '</s> </s>' | \
